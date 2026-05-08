@@ -1,0 +1,16 @@
+# Function to calculate the square of a number
+def square(num):
+    return num * num
+
+def square_and_double(num):
+    # Call the square function to calculate square
+    squared = square(num)
+
+    # Double the squared result
+    return 2 * squared
+
+# Call the square_and_double function with the argument 3
+result = square_and_double(3)
+
+print("Result:", result)     # Output will be 'Result: 18'
+
