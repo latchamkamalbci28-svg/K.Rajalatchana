@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main() {
+    // Allocate a large buffer to hold the input sentence
+    char *s = malloc(1024 * sizeof(char));
+    
+    // Read the entire line including spaces until a newline character
+    if (scanf("%[^\n]%*c", s) != 1) {
+        free(s);
+        return 0;
+    }
+    
+    // Reallocate memory to fit the actual size of the string exactly
+    s = realloc(s, (strlen(s) + 1) * sizeof(char));
+    
+    // Tokenise the string using space as the delimiter
+    char *token = strtok(s, " ");
+    
+    // Loop through and print each token (word)
+    while (token != NULL) {
+        printf("%s\n", token);
+        token = strtok(NULL, " ");
+    }
+    
+    // Free the dynamically allocated memory
+    free(s);
+    
+    return 0;
+}
